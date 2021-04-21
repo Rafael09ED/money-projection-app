@@ -23,13 +23,13 @@ const modifierShouldBeCounted = (modifier: MoneyModifier, tagsToInclude: string[
     if (modifier.tags.length <= 0) return true;
     for (let i of tagsToInclude)
         for (let j of modifier.tags)
-            if (i == j)
+            if (i === j)
                 return true;
     return false;
 }
 
 const calcualteMoneySteps = (cost: number, startDate: Date, endDate: Date, frequency: DeltaTime, dateSteps: Date[]): number[] => {
-    if (startDate > endDate) throw "End Date Before Start Date";
+    if (startDate > endDate) throw new Error("End Date Before Start Date");
 
     const answer: number[] = new Array(dateSteps.length - 1).fill(0);
 
@@ -82,7 +82,7 @@ const getTimelineFromTagGroup = (modifiers: MoneyModifier[], dateSteps: Date[], 
                     _.add
                 );
             },
-            <number[]>new Array(dateSteps.length - 1).fill(0)
+            new Array(dateSteps.length - 1).fill(0) as number[]
         );
 }
 
