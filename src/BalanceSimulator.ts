@@ -19,13 +19,6 @@ interface MoneyModifier {
     endDate: Date
 }
 
-interface TableOptions {
-    startDate: Date,
-    endDate: Date,
-    timeDelta: DeltaTime,
-    tags: Tag[][]
-}
-
 const modifierShouldBeCounted = (modifier: MoneyModifier, tagsToInclude: string[]): boolean => {
     if (modifier.tags.length <= 0) return true;
     for (let i of tagsToInclude)
@@ -34,7 +27,6 @@ const modifierShouldBeCounted = (modifier: MoneyModifier, tagsToInclude: string[
                 return true;
     return false;
 }
-
 
 const calcualteMoneySteps = (cost: number, startDate: Date, endDate: Date, frequency: DeltaTime, dateSteps: Date[]): number[] => {
     if (startDate > endDate) throw "End Date Before Start Date";
@@ -45,6 +37,7 @@ const calcualteMoneySteps = (cost: number, startDate: Date, endDate: Date, frequ
     let currentDateStep = 0;
 
     let timePointer = startDate;
+
     while (timePointer < _.first(dateSteps)!){
         rollingSum += cost;
         timePointer = timePointer.plus(frequency);
@@ -55,6 +48,7 @@ const calcualteMoneySteps = (cost: number, startDate: Date, endDate: Date, frequ
         if (currentDateStep >= answer.length)
             return answer;
     }
+
     while (
         (timePointer < endDate && timePointer < _.last(dateSteps)!)
         || (timePointer.equals(endDate) && timePointer.equals(startDate))
@@ -73,11 +67,6 @@ const calcualteMoneySteps = (cost: number, startDate: Date, endDate: Date, frequ
     return answer;
 }
 
-// old headers
-//startDate: Date,    endDate: Date,    timeDelta: DeltaTime
-/*
-* modifiers & tagsGroups must be same length
-*/
 const getTimelineFromTagGroup = (modifiers: MoneyModifier[], dateSteps: Date[], tagsGroups: Tag[]): number[] => {
     return modifiers
         .reduce(
@@ -101,5 +90,5 @@ const convertFromModifiersToDateMoneyTimeline = (modifiers: MoneyModifier[], dat
     return tagsGroups.map((filterTags: Tag[]): number[] => getTimelineFromTagGroup(modifiers, dateSteps, filterTags));
 }
 
-export type { MoneyModifier, TableOptions }
+export type { MoneyModifier }
 export { modifierShouldBeCounted as shouldModifierBeCounted, convertFromModifiersToDateMoneyTimeline, calcualteMoneySteps };
