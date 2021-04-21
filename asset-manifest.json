@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/money-projection-app/static/css/main.ea1455b2.chunk.css",
-    "main.js": "/money-projection-app/static/js/main.ff7cbed9.chunk.js",
-    "main.js.map": "/money-projection-app/static/js/main.ff7cbed9.chunk.js.map",
-    "runtime-main.js": "/money-projection-app/static/js/runtime-main.8bb35478.js",
-    "runtime-main.js.map": "/money-projection-app/static/js/runtime-main.8bb35478.js.map",
-    "static/js/2.3a3d689e.chunk.js": "/money-projection-app/static/js/2.3a3d689e.chunk.js",
-    "static/js/2.3a3d689e.chunk.js.map": "/money-projection-app/static/js/2.3a3d689e.chunk.js.map",
+    "main.js": "/money-projection-app/static/js/main.6d2932d8.chunk.js",
+    "main.js.map": "/money-projection-app/static/js/main.6d2932d8.chunk.js.map",
+    "runtime-main.js": "/money-projection-app/static/js/runtime-main.7106cce6.js",
+    "runtime-main.js.map": "/money-projection-app/static/js/runtime-main.7106cce6.js.map",
+    "static/js/2.a6994ca0.chunk.js": "/money-projection-app/static/js/2.a6994ca0.chunk.js",
+    "static/js/2.a6994ca0.chunk.js.map": "/money-projection-app/static/js/2.a6994ca0.chunk.js.map",
     "index.html": "/money-projection-app/index.html",
     "static/css/main.ea1455b2.chunk.css.map": "/money-projection-app/static/css/main.ea1455b2.chunk.css.map",
-    "static/js/2.3a3d689e.chunk.js.LICENSE.txt": "/money-projection-app/static/js/2.3a3d689e.chunk.js.LICENSE.txt"
+    "static/js/2.a6994ca0.chunk.js.LICENSE.txt": "/money-projection-app/static/js/2.a6994ca0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8bb35478.js",
-    "static/js/2.3a3d689e.chunk.js",
+    "static/js/runtime-main.7106cce6.js",
+    "static/js/2.a6994ca0.chunk.js",
     "static/css/main.ea1455b2.chunk.css",
-    "static/js/main.ff7cbed9.chunk.js"
+    "static/js/main.6d2932d8.chunk.js"
   ]
 }
