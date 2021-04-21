@@ -45,33 +45,30 @@ const calcualteMoneySteps = (cost: number, startDate: Date, endDate: Date, frequ
     let currentDateStep = 0;
 
     let timePointer = startDate;
-    while (timePointer < _.first(dateSteps)!)
+    while (timePointer < _.first(dateSteps)!){
         rollingSum += cost;
+        timePointer = timePointer.plus(frequency);
+    }
 
     while (timePointer > dateSteps[currentDateStep]) {
         currentDateStep++;
-        if (currentDateStep >= dateSteps.length)
+        if (currentDateStep >= answer.length)
             return answer;
     }
-
-    for (;
-        ((startDate == endDate && endDate == timePointer)|| timePointer <= endDate)
-        && timePointer < _.last(dateSteps)!
-        ;
-        timePointer = timePointer.plus(frequency)
+    while (
+        (timePointer < endDate && timePointer < _.last(dateSteps)!)
+        || (timePointer.equals(endDate) && timePointer.equals(startDate))
     ) {
-
         while (dateSteps[currentDateStep] < timePointer) {
             answer[currentDateStep] = rollingSum;
             currentDateStep++;
         }
-        // add cost to the right Date group
         rollingSum += cost;
+        timePointer = timePointer.plus(frequency);
     }
 
     for (; currentDateStep < answer.length; currentDateStep++)
         answer[currentDateStep] = rollingSum;
-
 
     return answer;
 }
@@ -96,7 +93,7 @@ const getTimelineFromTagGroup = (modifiers: MoneyModifier[], dateSteps: Date[], 
                     _.add
                 );
             },
-            <number[]>new Array(dateSteps.length).fill(0)
+            <number[]>new Array(dateSteps.length - 1).fill(0)
         );
 }
 
